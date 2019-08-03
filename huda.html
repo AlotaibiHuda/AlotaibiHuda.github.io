@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .body{
+        width:80px;
+        height:80px;
+        border: 5px solid #000000;
+        background: rgb(172, 125, 125);
+        font-size: 46px;
+        font-family: arial;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+        color: black
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        var tds=document.querySelectorAll('td');
+        for(var i=0;i<tds.length;i++);
+        var td=tds[i];
+        td.addEventListener('click',function(e){
+            var value=e.target.textcontent='x';
+            console.log('here:',value.length);
+            if(value=='')
+            e.target.textcontent='x';
+            else if(value=='o')
+            e.target.textcontent='';
+            else if(value=='x')
+            e.target.textcontent='o';
+
+        });
+
+
+    </script>
+    
+</body>
+</html>
