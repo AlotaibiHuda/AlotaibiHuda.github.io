@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+
+    </style>
+</head>
+<body>
+    <h1><strong>What Can JavaScript Do?</strong></h1>
+    <p>JavaScript can changeHTML attribute value<br>In this case JavaScript change the value of the crs</p>
+    <button id="on" type="button"name="button">turn on the light</button>
+    <img src="" alt="">
+    <button id="off" type="button"name="button">turn of the light</button>
+    <script>
+        var btn1= document.querySelector("#on");
+        btn1.addEventListener("click",fn1);
+        function fn1(){
+            var img1 = document.querySelector("img");
+            img1.setAttribute("src","pic_bulbon.gif");
+        };
+        var btn2= document.querySelector("#off");
+        btn2.addEventListener("click",fn2);
+        function fn2(){
+            var img2= document.querySelector("img");
+            img2.setAttribute("src","pic_bulboff.gif");
+        };
+        
+    </script>
+</body>
+</html>
