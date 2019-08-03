@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xo game</title>
+    <style>
+    .title{
+        background-color: aquamarine;
+        height: 100%;
+        width: 100%;
+        border: 1px solid;
+         margin: 0 auto; 
+         border-collapse: collapse;
+         padding: 60px;
+        }
+        .game{
+            width: 400px;
+            height: 400px;
+            margin: 100px auto
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            font-size: 50px;
+            color:black;
+            float: left;
+            background-color:white;
+            text-align: center;
+            font-family: sans-serif;
+            cursor: pointer; 
+            border-width: 5px;
+            border-style: solid;
+            border-color: black;
+            
+
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Welcom To My Game!</h1>
+        <h2>My first Tic Tac Teo Game</h2>
+        <p>Please click on the restart button to start again</p>
+        <input type=button onClick="reset()" value="Restart">
+        </div>
+    <div class="game">
+        <div class="square" id="A1" onclick="insert(this.id)"></div>
+        <div class="square" id="A2" onclick="insert(this.id)"></div>
+        <div class="square" id="A3" onclick="insert(this.id)"></div>
+        <div class="square" id="A4" onclick="insert(this.id)"></div>
+        <div class="square" id="A5" onclick="insert(this.id)"></div>
+        <div class="square" id="A6" onclick="insert(this.id)" ></div>
+        <div class="square" id="A7" onclick="insert(this.id)" ></div>
+        <div class="square" id="A8" onclick="insert(this.id)"></div>
+        <div class="square" id="A9" onclick="insert(this.id)"></div>
+    </div>
+    <script>
+
+        var turn=true; 
+        var squares =[];
+        function reset(){
+            var squares=document.querySelectorAll('.square');
+            for(var i=0;i<squares.length;i++){
+                var item=squares[i];
+                item.innerHTML='';
+            }
+        }
+        
+        function checkWinner(){
+            for(var i=1; i<=9; i++){
+                squares[i]=document.getElementById('A'+i).innerHTML;
+            }
+
+            if(squares[1]==squares[2] && squares[2]==squares[3] && squares[1]!=""){
+                alert('player'+squares[1]+'wins the game');
+                reset(1,2,3);
+            }
+            if(squares[4]==squares[5] && squares[5]==squares[6] && squares[4]!=""){
+                alert('player'+squares[4]+'wins the game');
+                reset(4,5,6);
+            }
+            if(squares[7]==squares[8] && squares[8]==squares[9] && squares[7]!=""){
+                alert('player'+squares[7]+'wins the game');
+                reset(7,8,9);
+            }
+            if(squares[1]==squares[4] && squares[4]==squares[7] && squares[1]!=""){
+                alert('player'+squares[1]+'wins the game');
+                reset(1,4,7);
+            }
+            if(squares[2]==squares[5] && squares[5]==squares[8] && squares[2]!=""){
+                alert('player'+squares[2]+'wins the game');
+                reset(2,5,8);
+            }
+            if(squares[3]==squares[6] && squares[6]==squares[9] && squares[3]!=""){
+                alert('player'+squares[3]+'wins the game');
+                reset(3,6,9);
+            }
+            if(squares[1]==squares[5] && squares[5]==squares[9] && squares[1]!=""){
+                alert('player'+squares[1]+'wins the game');
+                reset(1,5,9);
+            }
+            if(squares[3]==squares[5] && squares[5]==squares[7] && squares[3]!=""){
+                alert('player'+squares[3]+'wins the game');
+                reset(3,5,7);
+        }
+        }
+        function insert(id){
+            var s=document.getElementById(id);
+            if(turn && s.innerHTML==""){
+                s.innerHTML="x";
+                turn=!turn;
+            }else if(!turn && s.innerHTML==""){
+                s.innerHTML="o";
+                turn=!turn;
+            }
+            checkWinner();
+        }
+    </script>
+</body>
+</html>
